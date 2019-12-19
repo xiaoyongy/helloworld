@@ -27,7 +27,7 @@ public class ArrageTree {
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
+        /*TreeNode root = new TreeNode(1);
         TreeNode r2 =  new TreeNode(2);
         TreeNode r3 = new TreeNode(3);
         TreeNode r4 = new TreeNode(4);
@@ -40,6 +40,11 @@ public class ArrageTree {
         r2.right = r5;
         r3.left = r6;
         r3.right = r7;
-        preorderTraversal(root);
+        preorderTraversal(root);*/
+        System.out.println(Byte.BYTES);
+        System.out.println(Byte.SIZE);
+        System.out.println(Byte.MAX_VALUE);
+        System.out.println(Byte.MIN_VALUE);
+
     }
 }
