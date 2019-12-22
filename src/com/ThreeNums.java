@@ -55,6 +55,5 @@ public class ThreeNums {
         int[] num = {-1,0,1,2,-1,-4};
         List<List<Integer>> list = threeSum(num);
         System.out.println(list.toString());
-
     }
 }
