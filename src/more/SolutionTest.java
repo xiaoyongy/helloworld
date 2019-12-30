@@ -12,22 +12,45 @@ public class SolutionTest {
     /**
      *删除链表的倒数第N个节点
      */
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode f = head;
-        ListNode s = head;
-        for (int i = 0; i < n; i++) {
-            f = f.next;
+    public static ListNode removeNthFromEnd(ListNode head) {
+        ListNode newhead = new ListNode(0);
+        newhead.next = head;
+        ListNode pre = newhead;
+        ListNode walkNode = newhead.next;
+//        for (int i = 0; i < n; i++) {
+//            f = f.next;
+//        }
+//        if(f == null) {
+//            return head = head.next;
+//        }
+//        while(f.next!=null) {
+//            f = f.next;
+//            s = s.next;
+//        }
+//        s.next = s.next.next;
+        while (walkNode!=null){
+            if(walkNode.next!=null){
+                if(walkNode.next.val!=walkNode.val){
+                    if(pre.next!=walkNode){
+                        pre.next = walkNode.next;
+                    }
+                    else {
+                        pre = walkNode;
+                    }
+                }
+            }
+            else {
+                if(pre.next!=walkNode){
+                    pre.next = walkNode.next;
+                }
+                else {
+                    pre = walkNode;
+                }
+            }
+            walkNode = walkNode.next;
         }
-        if(f == null) {
-            return head = head.next;
-        }
-        while(f.next!=null) {
-            f = f.next;
-            s = s.next;
-        }
-        s.next = s.next.next;
 
-        return head;
+        return newhead.next;
     }
     /**
      * 打印链表
@@ -57,8 +80,10 @@ public class SolutionTest {
         head.next = new ListNode(2);
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        head = SolutionTest.removeNthFromEnd(head, 3);
+        head.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next.next = new ListNode(5);
+        SolutionTest.removeNthFromEnd(head);
 //        printList(head);
         while (head!=null){
             System.out.println(head.val);
