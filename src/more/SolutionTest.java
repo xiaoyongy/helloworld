@@ -107,7 +107,6 @@ public class SolutionTest {
         LinkHead.add(4);
         LinkHead.add(5);
         SolutionTest.removeNthFromEnd(LinkHead);
-//        printList(head);
         while (LinkHead.head!=null){
             System.out.println(LinkHead.head.val);
             LinkHead.head=LinkHead.head.next;
