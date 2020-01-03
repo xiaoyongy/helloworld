@@ -1,35 +1,20 @@
 package more;
 
-import java.util.LinkedList;
-import java.util.List;
-
 class ListNode{
     int val;
     ListNode next;
     public ListNode(int val){
         this.val=val;
     }
-
 }
 public class SolutionTest {
-    public ListNode head = null;
-    public ListNode last = head;
-    public void add(int val){
-        ListNode node = new ListNode(val);
-        if(head == null){
-            head = node;
-        }else {
-            last.next = node;
-        }
-        last = node;
-    }
 
     /**
-     *删除链表的重复节点
+     *删除链表的倒数第N个节点
      */
-    public static ListNode removeNthFromEnd(SolutionTest LinkHead) {
+    public static ListNode removeNthFromEnd(ListNode head) {
         ListNode newhead = new ListNode(0);
-        newhead.next = LinkHead.head;
+        newhead.next = head;
         ListNode pre = newhead;
         ListNode walkNode = newhead.next;
 //        for (int i = 0; i < n; i++) {
@@ -91,26 +76,18 @@ public class SolutionTest {
 //        printList(head);
 //    }
     public static void main(String[] args){
-//        ListNode head = new ListNode(1);
-//        head.next = new ListNode(2);
-//        head.next.next = new ListNode(3);
-//        head.next.next.next = new ListNode(4);
-//        head.next.next.next.next = new ListNode(4);
-//        head.next.next.next.next.next = new ListNode(4);
-//        head.next.next.next.next.next.next = new ListNode(5);
-        SolutionTest LinkHead = new SolutionTest();
-        LinkHead.add(1);
-        LinkHead.add(2);
-        LinkHead.add(3);
-        LinkHead.add(4);
-        LinkHead.add(4);
-        LinkHead.add(4);
-        LinkHead.add(5);
-        SolutionTest.removeNthFromEnd(LinkHead);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+        head.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next = new ListNode(4);
+        head.next.next.next.next.next.next = new ListNode(5);
+        SolutionTest.removeNthFromEnd(head);
 //        printList(head);
-        while (LinkHead.head!=null){
-            System.out.println(LinkHead.head.val);
-            LinkHead.head=LinkHead.head.next;
+        while (head!=null){
+            System.out.println(head.val);
+            head=head.next;
         }
     }
 
