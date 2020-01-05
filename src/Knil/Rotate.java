@@ -9,6 +9,18 @@ class ListNode{
 }
 public class Rotate {
     public static ListNode rotateList(ListNode list, int k){
+        if(list==null||list.next==null||k==0)
+            return list;
+        int count = 0;
+        while(list!=null){
+            count++;
+            list = list.next;
+        }
+//        对k的值进行判断，是否大于链表长度
+        if(k%count == 0)
+            return list;
+        k = k%count;
+
         ListNode pre = new ListNode(0);
         ListNode tmp = list;
         ListNode temp = list;
