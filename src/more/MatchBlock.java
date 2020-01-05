@@ -29,6 +29,7 @@ public class MatchBlock {
                     return false;
                 }
                 //若左右括号匹配
+//                需要先判断左右括号是否匹配
                 if(stack.peek() == bracket.get(temp)){
                     stack.pop();
                 }
