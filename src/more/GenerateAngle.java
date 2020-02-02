@@ -21,6 +21,17 @@ public class GenerateAngle {
         return result;
     }
 
+    public List<Integer> generateAngleII(int n){
+        List<Integer> res = Arrays.asList(new Integer[n+1]);
+        int index = 1;
+        if (n<0) return res;
+        for (int i=0;i<=n;i++){
+            res.add(index);
+            index = index*(n-i)/(i+1);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int nums = sc.nextInt();
