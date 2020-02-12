@@ -1,6 +1,9 @@
 package most;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class WordDict {
 //    判断字符串中是否有子串与列表中的词匹配
@@ -33,17 +36,39 @@ public class WordDict {
         }
         return meno[len];
     }
-
+//        https://www.cnblogs.com/yanhowever/p/10950763.html
+    private Map<String, List<String>> map = new HashMap<>();
+    private List<String> wordBreak(String s, List<String> wordDict) {
+        if (map.containsKey(s)) //如果包含 则直接返回s
+            return map.get(s);
+        List<String> list = new ArrayList<>();
+        if (s.length() == 0) {
+            list.add("");
+            return list;
+        }
+        for (String word : wordDict) {
+            if (s.startsWith(word)) {//判断s是否含有word的前缀
+                List<String> tmpList = wordBreak(s.substring(word.length()), wordDict);
+                for (String tmp : tmpList)
+                    list.add(word + (tmp.equals("") ? "" : " ") + tmp);//空的话则""结尾
+            }
+        }
+        map.put(s, list);//记录可以拆分的字符串，并且记录拆分的方法
+        return list;
+    }
 
     public static void main(String[] args) {
         String str = "catsanddog";
-        ArrayList<String> list = new ArrayList<>();
-        list.add("cats");
+        List<String> list = new ArrayList<>();
+//        list.add("cats");
         list.add("dog");
         list.add("sand");
-        list.add("and");
+//        list.add("and");
         list.add("cat");
-        boolean flash = new WordDict().wordDict2(str, list);
-        System.out.println(flash);
+        list.add("sanddog");
+//        boolean flash = new WordDict().wordDict2(str, list);
+        List<String> listBreak = new WordDict().wordBreak(str, list);
+        System.out.println(list);
+        System.out.println(listBreak);
     }
 }
