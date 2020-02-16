@@ -45,7 +45,8 @@ public class MaximumGap {
             if (buckets[loc] == null) {
                 buckets[loc] = new Bucket();
             }
-
+//在这里，我们只需要记录每个桶的最大值与最小值，因为这些数的最大间距不可能在同一个桶里，只会存在于一个桶的最大值与另一个桶的最小值之间
+//            这个原理可以根据抽屉原理得出
             buckets[loc].min = Math.min(buckets[loc].min, nums[i]);
             buckets[loc].max = Math.max(buckets[loc].max, nums[i]);
         }
