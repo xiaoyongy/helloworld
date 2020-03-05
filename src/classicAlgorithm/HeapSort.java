@@ -8,8 +8,9 @@ public class HeapSort {
         int[] arr = Arrays.copyOf(sourceArray, sourceArray.length);
 
         int len = arr.length;
-
+//这一步目的：让arr成为由大到小的堆的数组
         buildMaxHeap(arr, len);
+//        heapify(arr,0,len);
 
         for (int i = len - 1; i > 0; i--) {
             swap(arr, 0, i);
