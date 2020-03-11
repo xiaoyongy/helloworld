@@ -13,8 +13,14 @@ public class JumpFloor {
         }
         return floor;
     }
+    public int jumpFloorII(int target){
+//        if (target == 1) return 1;
+//        return 2<<(target-2);
+        return (int) Math.pow(2, target-1);
+    }
 
     public static void main(String[] args) {
         System.out.println(new JumpFloor().jumpFloor(4));
+        System.out.println(new JumpFloor().jumpFloorII(3));
     }
 }
